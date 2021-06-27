@@ -4,41 +4,35 @@ from getpass import getpass
 
 password = getpass()
 
-cisco1 = {
-    "device_type": "cisco_ios",
-    "host": "cisco1.lasthop.io",
-    "username": "pyclass",
-    "password": password,
+FWTSR01 = {
+    'device_type': 'ericsson_ipos',
+    'host':   '10.202.51.231',
+    'username': 'e.mansouri',
+    'password': 'R0YgB1V!00',
+    "session_log": "FWTSR01_output.txt",
 }
 
-cisco2 = {
-    "device_type": "cisco_ios",
-    "host": "cisco2.lasthop.io",
-    "username": "pyclass",
-    "password": password,
+FWTSR02 = {
+    "device_type": "ericsson_ipos",
+    'host':   '10.202.51.231',
+    'username': 'e.mansouri',
+    'password': 'R0YgB1V!00',
+    "session_log": "FWTSR02_output.txt",
 }
 
-nxos1 = {
-    "device_type": "cisco_nxos",
-    "host": "nxos1.lasthop.io",
-    "username": "pyclass",
-    "password": password,
-}
 
-srx1 = {
-    "device_type": "juniper_junos",
-    "host": "srx1.lasthop.io",
-    "username": "pyclass",
-    "password": password,
-}
-
-for device in (cisco1, cisco2, nxos1, srx1):
+for device in (FWTSR01, FWTSR02):
     net_connect = ConnectHandler(**device)
+    output = net_connect.send_command(term_len)
+    output = net_connect.send_command(command)
     print(net_connect.find_prompt())
     net_connect.disconnect()
 
 
 # Show command that we execute
-command = "show ip int brief"
-with ConnectHandler(**cisco1) as net_connect:
-    output = net_connect.send_command(command)
+#term_len = "term len 0"
+#command = "show ip int brief"
+#for device2 in (FWTSR01, FWTSR02):
+#    with ConnectHandler(**device2) as net_connect:
+#        output = net_connect.send_command(term_len)
+#        output = net_connect.send_command(command)
