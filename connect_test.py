@@ -26,10 +26,17 @@ print(output)
 print(output2)
 print(type(output2))
 
-#contextLists = [str(item) for item in output2]
-#print(contextLists)
-#print(type(contextLists))
+def Convert(output2):
+    li = list(output2.split(" "))
+    return li
 
+
+#output2 = [x.strip(' ') for x in output2]
+#print(output2)
+
+print(Convert(output2))
+#(Convert(output2)).replace(" ", "")
+#print(output2)
 
 # Show command that we execute
 #term_len = "term len 0"
