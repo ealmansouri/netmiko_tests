@@ -94,15 +94,15 @@ for device in (BEN_SR7_02, FWT_SR7_01, FWT_SR7_02):
     for vprn in listBlue:
         net_connect = ConnectHandler(**device)
         termLenCmd = net_connect.send_command("environment no more")
-        shipintbriefCmd = net_connect.send_command("show router " + vprn " route-table protocol local")
-        print(net_connect.find_prompt())
-        net_connect.disconnect()
+        shRouteTable = net_connect.send_command("show router " + vprn + " route-table protocol local")
+        #print(net_connect.find_prompt())
+        #net_connect.disconnect()
 
 #for device in (ALM_SRA8_01, ALB_SRA8_01, TOB_SRA8_01):
 #    for vprn in listRed:
 #        net_connect = ConnectHandler(**device)
 #        termLenCmd = net_connect.send_command("environment no more")
-#        shipintbriefCmd = net_connect.send_command("show router " + vprn " route-table protocol local")
+#        shRouteTable = net_connect.send_command("show router " + vprn + " route-table protocol local")
 #        print(net_connect.find_prompt())
 #        net_connect.disconnect()
 #    
@@ -110,7 +110,7 @@ for device in (BEN_SR7_02, FWT_SR7_01, FWT_SR7_02):
 #    for vprn in listGreen:
 #        net_connect = ConnectHandler(**device)
 #        termLenCmd = net_connect.send_command("environment no more")
-#        shipintbriefCmd = net_connect.send_command("show router " + vprn " route-table protocol local")
+#        shRouteTable = net_connect.send_command("show router " + vprn + " route-table protocol local")
 #        print(net_connect.find_prompt())
 #        net_connect.disconnect()
 #
@@ -118,7 +118,7 @@ for device in (BEN_SR7_02, FWT_SR7_01, FWT_SR7_02):
 #    for vprn in listDer1:
 #        net_connect = ConnectHandler(**device)
 #        termLenCmd = net_connect.send_command("environment no more")
-#        shipintbriefCmd = net_connect.send_command("show router " + vprn " route-table protocol local")
+#        shRouteTable = net_connect.send_command("show router " + vprn + " route-table protocol local")
 #        print(net_connect.find_prompt())
 #        net_connect.disconnect()
 #
@@ -126,7 +126,7 @@ for device in (BEN_SR7_02, FWT_SR7_01, FWT_SR7_02):
 #    for vprn in listDer2:
 #        net_connect = ConnectHandler(**device)
 #        termLenCmd = net_connect.send_command("environment no more")
-#        shipintbriefCmd = net_connect.send_command("show router " + vprn " route-table protocol local")
+#        shRouteTable = net_connect.send_command("show router " + vprn + " route-table protocol local")
 #        print(net_connect.find_prompt())
 #        net_connect.disconnect()
 #
