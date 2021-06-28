@@ -1,8 +1,6 @@
 #!/usr/bin/env python
 from netmiko import ConnectHandler
-from getpass import getpass
 
-password = getpass()
 
 FWTSR01 = {
     'device_type': 'ericsson_ipos',
@@ -14,25 +12,70 @@ FWTSR01 = {
 
 FWTSR02 = {
     "device_type": "ericsson_ipos",
-    'host':   '10.202.51.231',
+    'host':   '10.202.51.232',
     'username': 'e.mansouri',
     'password': 'R0YgB1V!00',
     "session_log": "FWTSR02_output.txt",
 }
 
+BENSR01 = {
+    "device_type": "ericsson_ipos",
+    'host':   '10.202.51.225',
+    'username': 'e.mansouri',
+    'password': 'R0YgB1V!00',
+    "session_log": "BENSR01_output.txt",
+}
 
-for device in (FWTSR01, FWTSR02):
+BENSR02 = {
+    "device_type": "ericsson_ipos",
+    'host':   '10.202.51.226',
+    'username': 'e.mansouri',
+    'password': 'R0YgB1V!00',
+    "session_log": "BENSR02_output.txt",
+}
+
+DRNSE01 = {
+    "device_type": "ericsson_ipos",
+    'host':   '10.202.51.227',
+    'username': 'e.mansouri',
+    'password': 'R0YgB1V!00',
+    "session_log": "DRNSE01_output.txt",
+}
+
+DRNSE02 = {
+    "device_type": "ericsson_ipos",
+    'host':   '10.202.51.228',
+    'username': 'e.mansouri',
+    'password': 'R0YgB1V!00',
+    "session_log": "DRNSE02_output.txt",
+}
+
+EJISR01 = {
+    "device_type": "ericsson_ipos",
+    'host':   '10.202.51.235',
+    'username': 'e.mansouri',
+    'password': 'R0YgB1V!00',
+    "session_log": "EJISR01_output.txt",
+}
+
+EJISR02 = {
+    "device_type": "ericsson_ipos",
+    'host':   '10.202.51.236',
+    'username': 'e.mansouri',
+    'password': 'R0YgB1V!00',
+    "session_log": "EJISR02_output.txt",
+}
+
+
+termLen = "term len 0"
+showIpIntBrief = "show ip int brief all-context"
+
+
+for device in (FWTSR01, FWTSR02, BENSR01, BENSR02, DRNSE01, DRNSE02, EJISR01, EJISR02):
     net_connect = ConnectHandler(**device)
-    output = net_connect.send_command(term_len)
-    output = net_connect.send_command(command)
+    termLenCmd = net_connect.send_command(termLen)
+    shipintbriefCmd = net_connect.send_command(showIpIntBrief)
     print(net_connect.find_prompt())
     net_connect.disconnect()
 
 
-# Show command that we execute
-#term_len = "term len 0"
-#command = "show ip int brief"
-#for device2 in (FWTSR01, FWTSR02):
-#    with ConnectHandler(**device2) as net_connect:
-#        output = net_connect.send_command(term_len)
-#        output = net_connect.send_command(command)
