@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 from netmiko import ConnectHandler
+import re
 
 import logging
 logging.basicConfig(filename='test.log', level=logging.DEBUG)
@@ -23,19 +24,28 @@ output = net_connect.send_command(term_len)
 output = net_connect.send_command(showIpIntBrief)
 output2 = net_connect.send_command(showContext)
 print(output)
+#prints the value of the variable "output2"
 print(output2)
+
+# prints the data type of output2
 print(type(output2))
 
 def Convert(output2):
     li = list(output2.split(" "))
     return li
 
+newOutput2 = Convert(output2)
+#
+result = re.sub(' +', ' ', newOutput2)
+
+print(result)
+
+
 
 #output2 = [x.strip(' ') for x in output2]
 #print(output2)
 
-print(Convert(output2))
-#(Convert(output2)).replace(" ", "")
+#print(Convert(output2))
 #print(output2)
 
 # Show command that we execute
