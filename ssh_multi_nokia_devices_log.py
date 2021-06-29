@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 from netmiko import ConnectHandler
-
+import re
 
 BEN_SR7_01 = {
     "device_type": 'nokia_sros',
@@ -95,43 +95,78 @@ for device in (BEN_SR7_02, FWT_SR7_01, FWT_SR7_02):
     net_connect = ConnectHandler(**device)
     termLenCmd = net_connect.send_command("environment no more")
     shRouteTable = net_connect.send_command("show router route-table protocol local")
+    outputArr = shRouteTable.splitlines()
+    for i in range(len(outputArr)):
+        matchObj = re.match('([0-9]{1,3})\.([0-9]{1,3})\.([0-9]{1,3})\.([0-9]{1,3})', outputArr[i])
+        if matchObj:
+            lineArr = outputArr[i].split()
+            print(outputArr[i+1].split()[0], "\t", lineArr[0])
+
     for vprn in listBlue:
         shRouteTable2 = net_connect.send_command("show router " + vprn + " route-table protocol local")
+        outputArr = shRouteTable.splitlines()
+        print("\n--------------VPRN---------------:" + vprn)
+        for i in range(len(outputArr)):
+            matchObj = re.match('([0-9]{1,3})\.([0-9]{1,3})\.([0-9]{1,3})\.([0-9]{1,3})', outputArr[i])
+            if matchObj:
+                lineArr = outputArr[i].split()
+                print(outputArr[i+1].split()[0], "\t", lineArr[0])
     print(net_connect.find_prompt())
     net_connect.disconnect()
 
-for device in (ALM_SRA8_01, ALB_SRA8_01, TOB_SRA8_01):
-    net_connect = ConnectHandler(**device)
-    termLenCmd = net_connect.send_command("environment no more")
-    shRouteTable = net_connect.send_command("show router route-table protocol local")
-    for vprn in listRed:
-        shRouteTable = net_connect.send_command("show router " + vprn + " route-table protocol local")
-    print(net_connect.find_prompt())
-    net_connect.disconnect()
-    
+#for device in (ALM_SRA8_01, ALB_SRA8_01, TOB_SRA8_01):
+#    net_connect = ConnectHandler(**device)
+#    termLenCmd = net_connect.send_command("environment no more")
+#    shRouteTable = net_connect.send_command("show router route-table protocol local")
+#    for vprn in listRed:
+#        shRouteTable = net_connect.send_command("show router " + vprn + " route-table protocol local")
+#    print(net_connect.find_prompt())
+#    net_connect.disconnect()
+
+
+
+
+
 net_connect = ConnectHandler(**BEN_SR7_01)
 termLenCmd = net_connect.send_command("environment no more")
 shRouteTable = net_connect.send_command("show router route-table protocol local")
+outputArr = shRouteTable.splitlines()
+for i in range(len(outputArr)):
+    matchObj = re.match('([0-9]{1,3})\.([0-9]{1,3})\.([0-9]{1,3})\.([0-9]{1,3})', outputArr[i])
+    if matchObj:
+        lineArr = outputArr[i].split()
+        print(outputArr[i+1].split()[0], "\t", lineArr[0])
+
+
 for vprn in listGreen:
     shRouteTable = net_connect.send_command("show router " + vprn + " route-table protocol local")
+    outputArr = shRouteTable.splitlines()
+    print("\n--------------VPRN---------------:" + vprn)
+    for i in range(len(outputArr)):
+        matchObj = re.match('([0-9]{1,3})\.([0-9]{1,3})\.([0-9]{1,3})\.([0-9]{1,3})', outputArr[i])
+        if matchObj:
+            lineArr = outputArr[i].split()
+            print(outputArr[i+1].split()[0], "\t", lineArr[0])
 print(net_connect.find_prompt())
 net_connect.disconnect()
 
-net_connect = ConnectHandler(**DER_SRA8_01)
-termLenCmd = net_connect.send_command("environment no more")
-shRouteTable = net_connect.send_command("show router route-table protocol local")
-for vprn in listDer1:
-    shRouteTable = net_connect.send_command("show router " + vprn + " route-table protocol local")
-print(net_connect.find_prompt())
-net_connect.disconnect()
+#net_connect = ConnectHandler(**DER_SRA8_01)
+#termLenCmd = net_connect.send_command("environment no more")
+#shRouteTable = net_connect.send_command("show router route-table protocol local")
+#for vprn in listDer1:
+#    shRouteTable = net_connect.send_command("show router " + vprn + " route-table protocol local")
+#print(net_connect.find_prompt())
+#net_connect.disconnect()
 
-net_connect = ConnectHandler(**DER_SRA8_02)
-termLenCmd = net_connect.send_command("environment no more")
-shRouteTable = net_connect.send_command("show router route-table protocol local")
-for vprn in listDer2:
-    shRouteTable = net_connect.send_command("show router " + vprn + " route-table protocol local")
-print(net_connect.find_prompt())
-net_connect.disconnect()
+
+#
+#net_connect = ConnectHandler(**DER_SRA8_02)
+#termLenCmd = net_connect.send_command("environment no more")
+#shRouteTable = net_connect.send_command("show router route-table protocol local")
+#for vprn in listDer2:
+#    shRouteTable = net_connect.send_command("show router " + vprn + " route-table protocol local")
+#print(net_connect.find_prompt())
+#net_connect.disconnect()
 
 
 
