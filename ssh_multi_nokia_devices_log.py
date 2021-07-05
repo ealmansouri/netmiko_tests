@@ -132,13 +132,8 @@ for device in (BEN_SR7_02, FWT_SR7_01, FWT_SR7_02):
                 lineArr = outputArr[i].split()
                 print(outputArr[i+1].split()[0], "\t", lineArr[0])
                 outputFile.write(str(deviceName) + "," + vprn + "," + outputArr[i+1].split()[0] + "," + lineArr[0] + "\n")
-    # Create a header within the output file to clearly seperate the output between each routers output
-    #outputFile.write("\n ---------------------------------------\n")
-    #outputFile.write(" --------------next device--------------\n")
-    #outputFile.write(" ---------------------------------------\n\n")
     print(net_connect.find_prompt())
     net_connect.disconnect()
-
 
 
 
@@ -163,7 +158,6 @@ for device in (ALM_SRA8_01, ALB_SRA8_01, TOB_SRA8_01):
             # write to the output file created earlier, to include the device name taken from the dictionary,
             # following by a colon, followed by the interface name , tab space then the IP address followed by a carriage return
             outputFile.write(str(deviceName) + "," + "0" + "," + outputArr[i+1].split()[0] + "," + lineArr[0] + "\n")
-
     for vprn in listRed:
         shRouteTable2 = net_connect.send_command("show router " + vprn + " route-table protocol local")
         # Split the output from the RIB into seperate lines
@@ -176,19 +170,13 @@ for device in (ALM_SRA8_01, ALB_SRA8_01, TOB_SRA8_01):
                 lineArr = outputArr[i].split()
                 print(outputArr[i+1].split()[0], "\t", lineArr[0])
                 outputFile.write(str(deviceName) + "," + vprn + "," + outputArr[i+1].split()[0] + "," + lineArr[0] + "\n")
-    # Create a header within the output file to clearly seperate the output between each routers output
-    #outputFile.write("\n ---------------------------------------\n")
-    #outputFile.write(" --------------next device--------------\n")
-    #outputFile.write(" ---------------------------------------\n\n")
     print(net_connect.find_prompt())
     net_connect.disconnect()
 
 
 
-
-
 net_connect = ConnectHandler(**BEN_SR7_01)
-deviceName = device["session_log"]
+deviceName = BEN_SR7_01["session_log"]
 termLenCmd = net_connect.send_command("environment no more")
 shRouteTable = net_connect.send_command("show router route-table protocol local")
 outputArr = shRouteTable.splitlines()
@@ -207,8 +195,6 @@ for i in range(len(outputArr)):
         # write to the output file created earlier, to include the device name taken from the dictionary,
         # following by a colon, followed by the interface name , tab space then the IP address followed by a carriage return
         outputFile.write(str(deviceName) + "," + "0" + "," + outputArr[i+1].split()[0] + "," + lineArr[0] + "\n")
-
-
 for vprn in listGreen:
     shRouteTable2 = net_connect.send_command("show router " + vprn + " route-table protocol local")
     # Split the output from the RIB into seperate lines
@@ -221,15 +207,13 @@ for vprn in listGreen:
             lineArr = outputArr[i].split()
             print(outputArr[i+1].split()[0], "\t", lineArr[0])
             outputFile.write(str(deviceName) + "," + vprn + "," + outputArr[i+1].split()[0] + "," + lineArr[0] + "\n")
-# Create a header within the output file to clearly seperate the output between each routers output
-#outputFile.write("\n ---------------------------------------\n")
-#outputFile.write(" --------------next device--------------\n")
-#outputFile.write(" ---------------------------------------\n\n")
 print(net_connect.find_prompt())
 net_connect.disconnect()
 
+
+
 net_connect = ConnectHandler(**DER_SRA8_01)
-deviceName = device["session_log"]
+deviceName = DER_SRA8_01["session_log"]
 termLenCmd = net_connect.send_command("environment no more")
 shRouteTable = net_connect.send_command("show router route-table protocol local")
 outputArr = shRouteTable.splitlines()
@@ -248,7 +232,6 @@ for i in range(len(outputArr)):
         # write to the output file created earlier, to include the device name taken from the dictionary,
         # following by a colon, followed by the interface name , tab space then the IP address followed by a carriage return
         outputFile.write(str(deviceName) + "," + "0" + "," + outputArr[i+1].split()[0] + "," + lineArr[0] + "\n")
-
 for vprn in listDer1:
     shRouteTable2 = net_connect.send_command("show router " + vprn + " route-table protocol local")
     # Split the output from the RIB into seperate lines
@@ -261,17 +244,13 @@ for vprn in listDer1:
             lineArr = outputArr[i].split()
             print(outputArr[i+1].split()[0], "\t", lineArr[0])
             outputFile.write(str(deviceName) + "," + vprn + "," + outputArr[i+1].split()[0] + "," + lineArr[0] + "\n")
-# Create a header within the output file to clearly seperate the output between each routers output
-#outputFile.write("\n ---------------------------------------\n")
-#outputFile.write(" --------------next device--------------\n")
-#outputFile.write(" ---------------------------------------\n\n")
 print(net_connect.find_prompt())
 net_connect.disconnect()
 
 
 
 net_connect = ConnectHandler(**DER_SRA8_02)
-deviceName = device["session_log"]
+deviceName = DER_SRA8_02["session_log"]
 termLenCmd = net_connect.send_command("environment no more")
 shRouteTable = net_connect.send_command("show router route-table protocol local")
 outputArr = shRouteTable.splitlines()
@@ -290,7 +269,6 @@ for i in range(len(outputArr)):
         # write to the output file created earlier, to include the device name taken from the dictionary,
         # following by a colon, followed by the interface name , tab space then the IP address followed by a carriage return
         outputFile.write(str(deviceName) + "," + "0" + "," + outputArr[i+1].split()[0] + "," + lineArr[0] + "\n")
-
 for vprn in listDer2:
     shRouteTable2 = net_connect.send_command("show router " + vprn + " route-table protocol local")
     # Split the output from the RIB into seperate lines
@@ -303,10 +281,6 @@ for vprn in listDer2:
             lineArr = outputArr[i].split()
             print(outputArr[i+1].split()[0], "\t", lineArr[0])
             outputFile.write(str(deviceName) + "," + vprn + "," + outputArr[i+1].split()[0] + "," + lineArr[0] + "\n")
-# Create a header within the output file to clearly seperate the output between each routers output
-#outputFile.write("\n ---------------------------------------\n")
-#outputFile.write(" --------------next device--------------\n")
-#outputFile.write(" ---------------------------------------\n\n")
 print(net_connect.find_prompt())
 net_connect.disconnect()
 
