@@ -154,30 +154,24 @@ for device in (KOFRA, BGZ_CE12804S_EOR, CX_Jdabia01, CX_Jdabia02, ATN_BRAYGAH, J
 # Commands to be run to extract the local IP's within the global routing table
     termLenCmd = net_connect.send_command("N\n")
     shRouteTable = net_connect.send_command("display ip int bri | no-more")
-    shInterfaceDes = net_connect.send_command("display interface description | no-more")
 # Split the output from the RIB into seperate lines
     outputArr = shRouteTable.splitlines()
-    shInterfaceDesArray = shInterfaceDes.splitlines()
 # Loop through each line according to the length of the variable Array as we don't know how many lines are in each output
     outputFile.write("Device" + "," + "Interface" + "," + "Subnet" + "," + "VRF" + "\n")
     for i in range(len(outputArr)):
         # define a new variable for each line currently being processed with the loop (outputArr[i]) 
         # Regex matching the format of an IP address
-        matchIPObj = re.search('([0-9]{1,3})\.([0-9]{1,3})\.([0-9]{1,3})\.([0-9]{1,3})', outputArr[i])
+        matchObj = re.search('([0-9]{1,3})\.([0-9]{1,3})\.([0-9]{1,3})\.([0-9]{1,3})', outputArr[i])
         # If there is a match of an IP address within the line then;
-        for i in range(len(shInterfaceDesArray)):
-            desLineArr = shInterfaceDesArray[i].split()
-            intDesc = desLineArr[3]
-            if matchIPObj:
-                if intDesc:
-                    # create a variable array that is variable outputArr[i] split at each whitespace
-                    lineArr = outputArr[i].split()
-                    # print the first array entry of the next line as the interface name is the first string on the following line
-                    # then a tab space followed by the first array entry of the current line which will be the IP address 
-                    print(lineArr[0], "\t", lineArr[1], "\t", lineArr[4])
-                    # write to the output file created earlier, to include the device name taken from the dictionary,
-                    # following by a colon, followed by the interface name , tab space then the IP address followed by a carriage return
-                    outputFile.write(str(deviceName) + "," + lineArr[0] + "," + lineArr[1] + "," + lineArr[4] + str(intDesc) + "\n")
+        if matchObj:
+            # create a variable array that is variable outputArr[i] split at each whitespace
+            lineArr = outputArr[i].split()
+            # print the first array entry of the next line as the interface name is the first string on the following line
+            # then a tab space followed by the first array entry of the current line which will be the IP address 
+            print(lineArr[0], "\t", lineArr[1], "\t", lineArr[4])
+            # write to the output file created earlier, to include the device name taken from the dictionary,
+            # following by a colon, followed by the interface name , tab space then the IP address followed by a carriage return
+            outputFile.write(str(deviceName) + "," + lineArr[0] + "," + lineArr[1] + "," + lineArr[4] + "\n")
     print(net_connect.find_prompt())
     net_connect.disconnect()
 # A loop to run the commands to extract the local IP's within each VPRNs routing table
