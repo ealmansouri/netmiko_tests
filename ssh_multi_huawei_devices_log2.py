@@ -6,8 +6,6 @@ from netmiko.ssh_exception import AuthenticationException
 from paramiko.ssh_exception import SSHException
 
 
-
-
 ATN_BRAYGAH = {
     "device_type": "huawei",
     'host':   '10.155.201.131',
@@ -160,7 +158,7 @@ for device in (ATN_BRAYGAH, JALO_GPTC1_ATN, RASLANUF, ZALAH_GPTC, TAHADEE, BEN_J
                 intVrfName = intVrf.split()
             # write to the output file created earlier, to include the device name taken from the dictionary,
             # following by a colon, followed by the interface name , tab space then the IP address followed by a carriage return
-                outputFile.write(str(deviceName) + "," + lineArr[0] + "," + lineArr[1] + "," + intVrfName[3] + "," + intDesc + "\n")
+            outputFile.write(str(deviceName) + "," + lineArr[0] + "," + lineArr[1] + "," + intVrfName[3] + "," + intDesc + "\n")
     print(net_connect.find_prompt())
     net_connect.disconnect()
 # A loop to run the commands to extract the local IP's within each VPRNs routing table
