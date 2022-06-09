@@ -4,83 +4,13 @@ import re
 
 BEN_SR7_01 = {
     "device_type": 'nokia_sros',
-    'host':   '10.202.129.1',
-    'username': 'e.mansouri',
-    'password': 'R0YgB1V!00',
-    "session_log": "BEN_SR7_01",
+    'host':   'xxxxx',
+    'username': 'xxxxx',
+    'password': 'xxxxx',
+    "session_log": "xxxxx",
 }
 
-BEN_SR7_02 = {
-    "device_type": "nokia_sros",
-    'host':   '10.202.129.11',
-    'username': 'e.mansouri',
-    'password': 'R0YgB1V!00',
-    "session_log": "BEN_SR7_02",
-}
 
-FWT_SR7_01 = {
-    "device_type": "nokia_sros",
-    'host':   '10.202.129.7',
-    'username': 'e.mansouri',
-    'password': 'R0YgB1V!00',
-    "session_log": "FWT_SR7_01",
-}
-
-FWT_SR7_02 = {
-    "device_type": "nokia_sros",
-    'host':   '10.202.129.17',
-    'username': 'e.mansouri',
-    'password': 'R0YgB1V!00',
-    "session_log": "FWT_SR7_02",
-}
-
-HYM_SRA8_01 = {
-    "device_type": "nokia_sros",
-    'host':   '10.202.129.9',
-    'username': 'e.mansouri',
-    'password': 'R0YgB1V!00',
-    "session_log": "HYM_SRA8_01",
-}
-
-ALM_SRA8_01 = {
-    "device_type": "nokia_sros",
-    'host':   '10.202.129.2',
-    'username': 'e.mansouri',
-    'password': 'R0YgB1V!00',
-    "session_log": "ALM_SRA8_01",
-}
-
-ALB_SRA8_01 = {
-    "device_type": "nokia_sros",
-    'host':   '10.202.129.3',
-    'username': 'e.mansouri',
-    'password': 'R0YgB1V!00',
-    "session_log": "ALB_SRA8_01",
-}
-
-DER_SRA8_01 = {
-    "device_type": "nokia_sros",
-    'host':   '10.202.129.4',
-    'username': 'e.mansouri',
-    'password': 'R0YgB1V!00',
-    "session_log": "DER_SRA8_01",
-}
-
-DER_SRA8_02 = {
-    "device_type": "nokia_sros",
-    'host':   '10.202.129.14',
-    'username': 'e.mansouri',
-    'password': 'R0YgB1V!00',
-    "session_log": "DER_SRA8_02",
-}
-
-TOB_SRA8_01 = {
-    "device_type": "nokia_sros",
-    'host':   '10.202.129.5',
-    'username': 'e.mansouri',
-    'password': 'R0YgB1V!00',
-    "session_log": "TOB_SRA8_01",
-}
 
 # Create a text file that we can write specific output to
 outputFile = open("MPBNOutput.csv","w")
