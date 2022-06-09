@@ -7,29 +7,14 @@ from paramiko.ssh_exception import SSHException
 
 
 
-BGZ_CE12804S_EOR = {
+xxxxx = {
     "device_type": 'huawei',
-    'host':   '10.155.16.1',
-    'username': 'almadar',
-    'password': 'Mrnd@123',
-    "session_log": "BGZ_CE12804S_EOR",
+    'host':   'xxxxx',
+    'username': 'xxxxx',
+    'password': 'xxxxx',
+    "session_log": "xxxxx",
 }
 
-CX_Jdabia01 = {
-    "device_type": "huawei",
-    'host':   '10.155.201.129',
-    'username': 'almadar',
-    'password': 'Mrnd@123',
-    "session_log": "CX_Jdabia01",
-}
-
-CX_Jdabia02 = {
-    "device_type": "huawei",
-    'host':   '10.155.201.130',
-    'username': 'almadar',
-    'password': 'Mrnd@123',
-    "session_log": "CX_Jdabia02",
-}
 
 
 # Create a text file that we can write specific output to
