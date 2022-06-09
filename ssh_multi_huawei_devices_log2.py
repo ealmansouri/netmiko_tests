@@ -8,99 +8,13 @@ from paramiko.ssh_exception import SSHException
 
 ATN_BRAYGAH = {
     "device_type": "huawei",
-    'host':   '10.155.201.131',
-    'username': 'almadar',
-    'password': 'Mrnd@123',
-    "session_log": "ATN_BRAYGAH",
+    'host':   'xxxxx',
+    'username': 'xxxxx',
+    'password': 'xxxxx',
+    "session_log": "xxxxx",
 }
 
-JALO_GPTC1_ATN = {
-    "device_type": "huawei",
-    'host':   '10.155.201.132',
-    'username': 'almadar',
-    'password': 'Mrnd@123',
-    "session_log": "JALO_GPTC1_ATN",
-}
 
-RASLANUF = {
-    "device_type": "huawei",
-    'host':   '10.155.201.133',
-    'username': 'almadar',
-    'password': 'Mrnd@123',
-    "session_log": "RASLANUF",
-}
-
-ZALAH_GPTC = {
-    "device_type": "huawei",
-    'host':   '10.155.201.134',
-    'username': 'almadar',
-    'password': 'Mrnd@123',
-    "session_log": "ZALAH_GPTC",
-}
-
-TAHADEE = {
-    "device_type": "huawei",
-    'host':   '10.155.201.135',
-    'username': 'almadar',
-    'password': 'Mrnd@123',
-    "session_log": "TAHADEE",
-}
-
-BEN_JAWAD_CENTER = {
-    "device_type": "huawei",
-    'host':   '10.155.201.136',
-    'username': 'almadar',
-    'password': 'Mrnd@123',
-    "session_log": "BEN_JAWAD_CENTER",
-}
-
-ATN_NOFALIA = {
-    "device_type": "huawei",
-    'host':   '10.155.201.137',
-    'username': 'almadar',
-    'password': 'Mrnd@123',
-    "session_log": "ATN_NOFALIA",
-}
-
-ZOLTEN = {
-    "device_type": "huawei",
-    'host':   '10.155.201.138',
-    'username': 'almadar',
-    'password': 'Mrnd@123',
-    "session_log": "ZOLTEN",
-}
-
-JALU_KUFRA6 = {
-    "device_type": "huawei",
-    'host':   '10.155.201.139',
-    'username': 'almadar',
-    'password': 'Mrnd@123',
-    "session_log": "JALU_KUFRA6",
-}
-
-MrradaGPTC = {
-    "device_type": "huawei",
-    'host':   '10.155.201.140',
-    'username': 'almadar',
-    'password': 'Mrnd@123',
-    "session_log": "MrradaGPTC",
-}
-
-OJLA_GPTC = {
-    "device_type": "huawei",
-    'host':   '10.155.201.141',
-    'username': 'almadar',
-    'password': 'Mrnd@123',
-    "session_log": "OJLA_GPTC",
-}
-
-KOFRA = {
-    "device_type": "huawei",
-    'host':   '10.155.201.142',
-    'username': 'almadar',
-    'password': 'Mrnd@123',
-    "session_log": "KOFRA",
-}
 
 # Create a text file that we can write specific output to
 outputFile = open("MPBNOutputHuawei2.csv","w")
